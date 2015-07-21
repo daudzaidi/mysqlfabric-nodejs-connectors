@@ -7,6 +7,14 @@ For more information on MysqlFabric visit : https://dev.mysql.com/doc/mysql-util
 
 Python connector developed by Mysql can be found [here](https://dev.mysql.com/doc/mysql-utilities/1.4/en/connector-python-fabric-connect.html) 
 
+**Note: Only range based shard quries supported currently.**
+
+#TO Do
+Following functionalities are not yet implemented : 
+* HASH based sharding
+* Load Balancing in case of multiple Secondary Servers in a group.
+* Caching information coming from Fabric to speed up operations
+
 #Usage
 Download the latest version from Git Repo and copy the fies in the app folder. 
 Define the configuration to connect to fabric state store and other servers.
