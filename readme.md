@@ -76,7 +76,7 @@ The format of each shard table is usually given as 'db_name.tbl_name'.
           });
 
 
-  By default, operations occur in local scope, or the scope property can be given to specify local or global scope explicitly. For local operations (as in the preceding example), the key argument must be specified to indicate which row to use. For global operations, do not specify the key attribute because the operation is performed on all rows in the table:
+By default, operations occur in local scope, or the scope property can be given to specify local or global scope explicitly. For local operations (as in the preceding example), the key argument must be specified to indicate which row to use. For global operations, do not specify the key attribute because the operation is performed on all rows in the table:
 
         fabric.set_property({tables: 'employees.employees',scope: 'SCOPE_GLOBAL'},
         function(err, cursor){
