@@ -9,7 +9,7 @@ Python connector developed by Mysql can be found [here](https://dev.mysql.com/do
 
 #Usage
 Download the latest version from Git Repo and copy the fies in the app folder. 
-Define the configuration to connect to fabrc state store and other servers.
+Define the configuration to connect to fabric state store and other servers.
 
         var config = {
               fabric: {
@@ -113,3 +113,5 @@ The default mode is read/write, so the driver connects to the master. The mode p
 There is also a test.js file which contains the sample code to query from Mysql Fabric Servers.
 
 Any further suggestion and modification are welcome.
+
+Email : daud.zaid@gmail.com
