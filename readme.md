@@ -44,11 +44,11 @@ These **set_property()** arguments are shard-related:
 
 Of which 
 
-mode is optional. The default is **fabric.MODE_READWRITE** if this property is omitted.
+**mode** is optional. The default is **fabric.MODE_READWRITE** if this property is omitted.
 
-scope is optional. The default is **fabric.SCOPE_LOCAL** if this property is omitted.
+**scope** is optional. The default is **fabric.SCOPE_LOCAL** if this property is omitted.
 
-key: If scope is fabric.SCOPE_LOCAL, key is required to indicate which row to affect. If scope is SCOPE_GLOBAL, key is inapplicable; do not specify it.
+**key**: If scope is fabric.SCOPE_LOCAL, key is required to indicate which row to affect. If scope is SCOPE_GLOBAL, key is inapplicable; do not specify it.
 
 When the mode argument is applicable, these values are permitted:
 **MODE_READWRITE**: Connect to a master server. This is the default.
