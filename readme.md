@@ -29,7 +29,7 @@ Require fabric.js in the script where Mysql Fabric related queries are to be use
 
 To access a database set one or more properties of the Fabric connection object using its set_property() method.
 
-These set_property() arguments are shard-related:
+These         set_property()         arguments are shard-related:
 
 tables: The sharding table or tables
 
@@ -40,6 +40,7 @@ scope: Whether operations are local or global
 key: The key that identifies which row to affect
 
 Of which 
+
 mode is optional. The default is fabric.MODE_READWRITE if this property is omitted.
 
 scope is optional. The default is fabric.SCOPE_LOCAL if this property is omitted.
