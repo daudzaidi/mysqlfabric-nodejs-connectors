@@ -48,12 +48,13 @@ Of which
 
 **scope** is optional. The default is **SCOPE_LOCAL** if this property is omitted.
 
-**key**: If scope is fabric.SCOPE_LOCAL, key is required to indicate which row to affect. If scope is SCOPE_GLOBAL, key is inapplicable; do not specify it.
+**key**: If scope is **SCOPE_LOCAL**, key is required to indicate which row to affect. If scope is SCOPE_GLOBAL, key is inapplicable; do not specify it.
 
 When the mode argument is applicable, these values are permitted:
+
 **MODE_READWRITE**: Connect to a master server. This is the default.
 
-**MODE_READONLY**: Connect to a slave if one is available, to the master otherwise. Load Balancing is NOT yet implemented in case of multiple secndary servers.
+**MODE_READONLY**: Connect to a slave if one is available, to the master otherwise. Load Balancing is NOT yet implemented in case of multiple secondary servers.
 
 When the scope argument is applicable, these values are permitted:
 
