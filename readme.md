@@ -2,7 +2,7 @@
 
 #Mysqlfabric Nodejs-connector
 
-Node Js connector for mysql fabric can be used to connect node js app with Mysql fabric. It assumes that HA and Sharding configuration is already done and is merely providing an inerface to Node js app to connect to Mysql Fabric Server only for RANGE BASED SHARDING
+Node Js connector for mysql fabric can be used to connect node js app with Mysql fabric. It assumes that HA and Sharding configuration is already done and is merely providing an interface to Node js app to connect to Mysql Fabric Server only for RANGE BASED SHARDING
 For more information on MysqlFabric visit : https://dev.mysql.com/doc/mysql-utilities/1.4/en/fabric.html
 
 Python connector developed by Mysql can be found [here](https://dev.mysql.com/doc/mysql-utilities/1.4/en/connector-python-fabric-connect.html) 
