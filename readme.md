@@ -7,7 +7,7 @@ For more information on MysqlFabric visit : https://dev.mysql.com/doc/mysql-util
 
 Python connector developed by Mysql can be found [here](https://dev.mysql.com/doc/mysql-utilities/1.4/en/connector-python-fabric-connect.html) 
 
-**Note: Only range based shard quries supported currently.**
+**Note: Only range based shard queries supported currently.**
 
 #TO Do
 Following functionalities are not yet implemented : 
