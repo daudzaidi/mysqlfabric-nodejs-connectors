@@ -3,6 +3,9 @@
 #Mysqlfabric Nodejs-connector
 
 Node Js connector for mysql fabric can be used to connect node js app with Mysql fabric. It assumes that HA and Sharding configuration is already done and is merely providing an inerface to Node js app to connect to Mysql Fabric Server only for RANGE BASED SHARDING
+For more information on MysqlFabric visit : https://dev.mysql.com/doc/mysql-utilities/1.4/en/fabric.html
+
+Python connector developed by Mysql can be found [here](https://dev.mysql.com/doc/mysql-utilities/1.4/en/connector-python-fabric-connect.html) 
 
 #Usage
 Download the latest version from Git Repo and copy the fies in the app folder. 
@@ -29,34 +32,34 @@ Require fabric.js in the script where Mysql Fabric related queries are to be use
 
 To access a database set one or more properties of the Fabric connection object using its set_property() method.
 
-These         set_property()         arguments are shard-related:
+These **set_property()** arguments are shard-related:
 
-tables: The sharding table or tables
+**tables**: The sharding table or tables
 
-mode: Whether operations are read/write or read only
+**mode**: Whether operations are read/write or read only
 
-scope: Whether operations are local or global
+**scope**: Whether operations are local or global
 
-key: The key that identifies which row to affect
+**key**: The key that identifies which row to affect
 
 Of which 
 
-mode is optional. The default is fabric.MODE_READWRITE if this property is omitted.
+mode is optional. The default is **fabric.MODE_READWRITE** if this property is omitted.
 
-scope is optional. The default is fabric.SCOPE_LOCAL if this property is omitted.
+scope is optional. The default is **fabric.SCOPE_LOCAL** if this property is omitted.
 
-key: If scope is fabric.SCOPE_LOCAL, key is required to indicate which row to affect. If scope is fabric.SCOPE_GLOBAL, key is inapplicable; do not specify it.
+key: If scope is fabric.SCOPE_LOCAL, key is required to indicate which row to affect. If scope is SCOPE_GLOBAL, key is inapplicable; do not specify it.
 
 When the mode argument is applicable, these values are permitted:
-fabric.MODE_READWRITE: Connect to a master server. This is the default.
+**MODE_READWRITE**: Connect to a master server. This is the default.
 
-fabric.MODE_READONLY: Connect to a slave if one is available, to the master otherwise. Load Balancing is NOT yet implemented in case of multiple secndary servers.
+**MODE_READONLY**: Connect to a slave if one is available, to the master otherwise. Load Balancing is NOT yet implemented in case of multiple secndary servers.
 
 When the scope argument is applicable, these values are permitted:
 
-fabric.SCOPE_LOCAL: Local operation that affects the row with a given key. This is the default.
+**SCOPE_LOCAL**: Local operation that affects the row with a given key. This is the default.
 
-fabric.SCOPE_GLOBAL: Global operation that affects all rows.
+**SCOPE_GLOBAL**: Global operation that affects all rows.
 
 To specify shard tables and shard keys, use the tables and key attributes of the set_property() method.
 
@@ -68,7 +71,7 @@ The format of each shard table is usually given as 'db_name.tbl_name'.
                       console.log(err)  // If error or cursor not found dump error
                     }else{
                       cursor.connect();  // connect to the shard server
-                      cursor.query('SELECT * from employees.employees', function(err, rows, fields){  // quering the mysql fabric servers
+                      cursor.query('SELECT * from employees.employees WHERE emp_no = 3000', function(err, rows, fields){  // quering the mysql fabric servers
                         if (err) throw err; 
                           console.log('Query', rows);  
                   });
@@ -93,7 +96,7 @@ By default, operations occur in local scope, or the scope property can be given 
 
 The default mode is read/write, so the driver connects to the master. The mode property can be given to specify read/write or read-only mode explicitly:
 
-     fabric.set_property({tables: 'employees.employees',mode : "fabric.MODE_READWRITE"},
+     fabric.set_property({tables: 'employees.employees', mode : "MODE_READWRITE"},
     function(err, cursor){
               if (err || !cursor) {
                 console.log(err)  // If error or cursor not found dump error
@@ -107,3 +110,4 @@ The default mode is read/write, so the driver connects to the master. The mode p
       });
 
 There is also a test.js file which contains the sample code to query from Mysql Fabric Servers.
+Any suggestion and modification are most welcomed.
