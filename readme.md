@@ -91,7 +91,7 @@ By default, operations occur in local scope, or the scope property can be given 
             }
         });
 
-    The default mode is read/write, so the driver connects to the master. The mode property can be given to specify read/write or read-only mode explicitly:
+The default mode is read/write, so the driver connects to the master. The mode property can be given to specify read/write or read-only mode explicitly:
 
      fabric.set_property({tables: 'employees.employees',mode : "fabric.MODE_READWRITE"},
     function(err, cursor){
