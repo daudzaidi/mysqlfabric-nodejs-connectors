@@ -8,24 +8,24 @@ Node Js connector for mysql fabric can be used to connect node js app with Mysql
 Download the latest version from Git Repo and copy the fies in the app folder. 
 Define the configuration to connect to fabrc state store and other servers.
 
-var config = {
-      fabric: {
-        host: 'localhost', //fabric state store host
-        port: 3306,   //fabric state store port
-        user: 'root', //fabric state store user
-        pass: '1234'  //fabric state store pass
-      },
+        var config = {
+              fabric: {
+                host: 'localhost', //fabric state store host
+                port: 3306,   //fabric state store port
+                user: 'root', //fabric state store user
+                pass: '1234'  //fabric state store pass
+              },
 
-      user: 'user1', // Shard/HA servers user
-      pass: ''       // Shard/HA servers pass
+              user: 'user1', // Shard/HA servers user
+              pass: ''       // Shard/HA servers pass
 
-}
+        }
 
 
 
 Require fabric.js in the script where Mysql Fabric related queries are to be used and pass the above configuration as following :
 
-var fabric = require('./fabric')(config);
+        var fabric = require('./fabric')(config);
 
 To access a database set one or more properties of the Fabric connection object using its set_property() method.
 
@@ -61,34 +61,34 @@ To specify shard tables and shard keys, use the tables and key attributes of the
 
 The format of each shard table is usually given as 'db_name.tbl_name'.
 
-fabric.set_property({tables: 'employees.employees',key : 3000},
-  function(err, cursor){
-            if (err || !cursor) {
-              console.log(err)  // If error or cursor not found dump error
-            }else{
-              cursor.connect();  // connect to the shard server
-              cursor.query('SELECT * from employees.employees', function(err, rows, fields){  // quering the mysql fabric servers
-                if (err) throw err; 
-                  console.log('Query', rows);  
+        fabric.set_property({tables: 'employees.employees',key : 3000},
+          function(err, cursor){
+                    if (err || !cursor) {
+                      console.log(err)  // If error or cursor not found dump error
+                    }else{
+                      cursor.connect();  // connect to the shard server
+                      cursor.query('SELECT * from employees.employees', function(err, rows, fields){  // quering the mysql fabric servers
+                        if (err) throw err; 
+                          console.log('Query', rows);  
+                  });
+              }
           });
-      }
-  });
 
 
   By default, operations occur in local scope, or the scope property can be given to specify local or global scope explicitly. For local operations (as in the preceding example), the key argument must be specified to indicate which row to use. For global operations, do not specify the key attribute because the operation is performed on all rows in the table:
 
-    fabric.set_property({tables: 'employees.employees',scope: 'SCOPE_GLOBAL'},
-    function(err, cursor){
-              if (err || !cursor) {
-                console.log(err)  // If error or cursor not found dump error
-              }else{
-                cursor.connect();  // connect to the shard server
-                cursor.query('UPDATE employees SET last_name = UPPER(last_name)', function(err, rows, fields){  // Updating the GLOBAL Table
-                  if (err) throw err; 
-                    console.log('Query', rows);  
-            });
-        }
-    });
+        fabric.set_property({tables: 'employees.employees',scope: 'SCOPE_GLOBAL'},
+        function(err, cursor){
+                  if (err || !cursor) {
+                    console.log(err)  // If error or cursor not found dump error
+                  }else{
+                    cursor.connect();  // connect to the shard server
+                    cursor.query('UPDATE employees SET last_name = UPPER(last_name)', function(err, rows, fields){  // Updating the GLOBAL Table
+                      if (err) throw err; 
+                        console.log('Query', rows);  
+                });
+            }
+        });
 
     The default mode is read/write, so the driver connects to the master. The mode property can be given to specify read/write or read-only mode explicitly:
 
@@ -103,6 +103,6 @@ fabric.set_property({tables: 'employees.employees',key : 3000},
                     console.log('Query', rows);  
             });
         }
-    });
+      });
 
 There is also a test.js file which contains the sample code to query from Mysql Fabric Servers.
