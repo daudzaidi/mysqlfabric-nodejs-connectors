@@ -110,4 +110,5 @@ The default mode is read/write, so the driver connects to the master. The mode p
       });
 
 There is also a test.js file which contains the sample code to query from Mysql Fabric Servers.
-Any suggestion and modification are most welcomed.
+
+Any further suggestion and modification are welcome.
