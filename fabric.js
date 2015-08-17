@@ -1,7 +1,7 @@
 var mysql = require('mysql');
 var get_range = require('./model/get_range');
 var get_shard = require('./model/get_shard');
-
+ 
  module.exports = function(cfg) {
       var cursor;
  	var fabric = {};
